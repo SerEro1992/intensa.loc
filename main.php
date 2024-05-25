@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   #Отобразить ошибки, если они есть
   if (!empty($errors)) {
     foreach ($errors as $error) {
-  #Устанавливаем ошибку в сессии
+      #Устанавливаем ошибку в сессии
       setFlashMessage('danger', $error);
     }
   } else {
@@ -67,23 +67,24 @@ $flashMessages = getFlashMessages();
   <form action="" method="post" id="leadForm">
     <div class="mb-3 w-50">
       <label for="fullName" class="form-label">Ф.И.О:</label>
-      <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Введите ваше полное имя">
+      <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Введите ваше полное имя"
+             required>
     </div>
 
     <div class="mb-3 w-50">
       <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="Введите ваш email">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Введите ваш email" required>
     </div>
 
     <div class="mb-3 w-50">
       <label for="phone" class="form-label">Телефон:</label>
       <input type="tel" class="form-control" id="phone" name="phone" placeholder="+7(000)000-00-00"
-             onkeyup="formatPhoneFront(this)" value="+7">
+             onkeyup="formatPhoneFront(this)" value="+7" required>
     </div>
 
     <div class="mb-3 w-50">
       <label for="city" class="form-label">Город:</label>
-      <select class="form-select" id="city" name="city">
+      <select class="form-select" id="city" name="city" required>
         <option value="" selected disabled>Выберите город</option>
         <option value="Москва">Москва</option>
         <option value="Санкт-Петербург">Санкт-Петербург</option>
